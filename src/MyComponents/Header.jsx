@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes, { bool } from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default function Header(props) {
   return (
@@ -35,5 +35,5 @@ Header.defaultProps = {
 
 Header.propTypes = {
   title: PropTypes.string,
-  searchBar: bool
+  searchBar: PropTypes.bool
 }

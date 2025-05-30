@@ -7,8 +7,8 @@ import { About } from "./MyComponents/About";
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Routes,
+  Route,
 } from "react-router-dom";
 
 function App() {
@@ -61,19 +61,17 @@ function App() {
     <> 
     <Router>
       <Header title="My Todos List" searchBar={false} /> 
-      <Switch>
-          <Route exact path="/" render={()=>{
-            return(
-            <>
+      <Routes>
+        <Route exact path="/" element={
+          <>
             <AddTodo addTodo={addTodo} />
-            <Todos todos={todos} onDelete={onDelete} /> 
-            </>)
-          }}> 
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route> 
-        </Switch> 
+            <Todos todos={todos} onDelete={onDelete} />
+          </>
+        } />
+        <Route exact path="/about" element={
+          <About />
+        } />
+      </Routes>
       <Footer />
     </Router>
     </>
